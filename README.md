@@ -19,5 +19,18 @@ A Historical Escape game that incorporates the learning of non-STEM subjects (Sp
   - A table for each level and content within it. A student must cross a threshold of points within each table to escape. 
   - A script for each level that would engage students - in case of failure the character dies or something. 
 
+### MVP 
+  - Our MVP will be a short story based game that allows students to travel through history by answering related questions before the timer runs out 
+   - Instead of a standard answer questions to get points we want it to be answer questions to escape history.
+#### Spanish Armada  
+  - Stage 1: The Castle Courtyard
+   - Answer core history questions to map out Norman vulnerabilities.
+  - Stage 2: The Great Hall (The Investigation) 
+   - Use your knowledge to solve a tactical challenge. 
+  - Stage 3: The Keep (Escape) 
+   - Reach the required score by explaining how the Harrying of the North crushed Anglo-Saxon resistance, using the distraction to slip past the gatehouse
+This would be enough for our MVP A small piece of history for students to navigate. 
+
+
   
 
