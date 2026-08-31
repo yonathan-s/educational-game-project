@@ -32,6 +32,7 @@ CREATE TABLE stages (
     level_id INT NOT NULL,
     stage_number INT NOT NULL,
     stage_name VARCHAR(100) NOT NULL,
+    points INT NOT NULL DEFAULT 100,
     PRIMARY KEY (id),
     FOREIGN KEY (level_id) REFERENCES levels(id),
     UNIQUE (level_id, stage_number)
