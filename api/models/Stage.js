@@ -25,3 +25,5 @@ class Stage {
 		return response.rows.map(s => new Stage(s))
 	}
 }
+
+module.exports = Stage
