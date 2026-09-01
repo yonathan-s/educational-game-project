@@ -22,7 +22,6 @@ body {
   padding: 48px 24px;
   font-family: "Cormorant Garamond", "Georgia", serif;
   color: var(--text-dark);
-  background-image: url("tudor-background.jpg");
   background-size: 480px;
 }
 
