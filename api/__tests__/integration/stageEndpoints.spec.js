@@ -29,7 +29,7 @@ describe("Stage API Endpoints", () => {
 			expect(response.body).toHaveProperty("id", stageId);
 		});
 
-		it("should return a 404 if goat is not found", async () => {
+		it("should return a 404 if stage is not found", async () => {
 			const nonExistentStageId = 999;
 			const response = await request(api).get(
 				`/stages/${nonExistentStageId}`,

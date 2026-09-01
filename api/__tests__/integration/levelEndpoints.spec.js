@@ -39,7 +39,7 @@ describe("Level API Endpoints", () => {
             expect(response.body).toHaveProperty("id", levelId);
         });
 
-        it("should return a 404 if goat is not found", async () => {
+        it("should return a 404 if level is not found", async () => {
             const nonExistentLevelId = 999;
             const response = await request(api).get(
                 `/levels/${nonExistentLevelId}`,
@@ -60,7 +60,7 @@ describe("Level API Endpoints", () => {
             expect(response.body.length).toBeGreaterThan(0);
         });
 
-        it("should return a 404 if goat is not found", async () => {
+        it("should return a 404 if stages are not found", async () => {
             const nonExistentLevelId = 999;
             const response = await request(api).get(
                 `/levels/${nonExistentLevelId}/stages`,
