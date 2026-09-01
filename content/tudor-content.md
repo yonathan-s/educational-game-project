@@ -1,12 +1,16 @@
-# The Tudors: Henry VIII and His Wives
+# Level 1: The Tudors
 
-## Your Mission
+## Stage 1: Henry VIII and His Wives
+
+### Your Mission
 
 You have travelled back in time to Tudor England.
 
-To continue your mission and get closer to rescuing Anne Boleyn, you will need to learn about Henry VIII and his six wives.
+To continue your mission and get closer to rescuing Anne Boleyn, you need to learn about Henry VIII, his wives and some of the important changes that took place during his reign.
 
-Read the crash course carefully. You will have 5 questions to answer afterwards!
+Read the crash course carefully.
+
+You will have 5 questions to answer afterwards!
 
 ---
 
@@ -16,7 +20,7 @@ Henry VIII became King of England in **1509** and ruled until his death in **154
 
 He was the second Tudor king.
 
-One of Henry's biggest concerns was having a **male heir** who could become king after him.
+One of Henry's biggest concerns was having a **male heir**. He wanted a son who could succeed him and become king after his death.
 
 This became an important reason behind some of his marriages and decisions.
 
@@ -32,7 +36,7 @@ Catherine of Aragon was Henry's first wife.
 
 They had a daughter called **Mary**, but they did not have a surviving son.
 
-Henry wanted to end their marriage because he wanted a male heir.
+Henry wanted to end their marriage because he wanted the opportunity to have a male heir.
 
 ### 2. Anne Boleyn
 
@@ -48,56 +52,58 @@ Jane Seymour was Henry's third wife.
 
 She gave Henry the male heir he wanted, a son called **Edward**.
 
+Edward later became King Edward VI.
+
 Jane died shortly after Edward was born.
 
 ### 4. Anne of Cleves
 
 Anne of Cleves was Henry's fourth wife.
 
-Their marriage lasted only a short time and was **annulled**.
+Their marriage lasted only a short time and was annulled.
 
 ### 5. Catherine Howard
 
 Catherine Howard was Henry's fifth wife.
 
-She was accused of adultery and was **executed**.
+She was accused of adultery and treason and was executed.
 
 ### 6. Catherine Parr
 
 Catherine Parr was Henry's sixth and final wife.
 
-She outlived Henry and helped care for his children.
+She survived Henry and helped care for his children.
 
 ---
 
-## Henry and the Church
+## Henry VIII and the Church
 
-Henry wanted to end his marriage to Catherine of Aragon so that he could marry Anne Boleyn.
+Henry wanted his marriage to Catherine of Aragon ended so that he could marry Anne Boleyn.
 
-The Pope would not give Henry the annulment he wanted.
+However, the Pope would not grant Henry the annulment he wanted.
 
 Henry rejected the Pope's authority in England and became head of the **Church of England**.
 
-This was an important part of the religious changes that took place during the Tudor period.
+This was an important part of the **English Reformation**, a major period of religious change in Tudor England.
 
 ---
 
 ## Remember the Six Wives
 
-A famous way of remembering what happened to Henry VIII's wives is:
+A famous way to remember what happened to Henry VIII's six wives is:
 
 **Divorced, Beheaded, Died, Divorced, Beheaded, Survived**
 
-Catherine of Aragon - Divorced  
-Anne Boleyn - Beheaded  
-Jane Seymour - Died  
-Anne of Cleves - Divorced  
-Catherine Howard - Beheaded  
-Catherine Parr - Survived
+- Catherine of Aragon - Divorced
+- Anne Boleyn - Beheaded
+- Jane Seymour - Died
+- Anne of Cleves - Divorced
+- Catherine Howard - Beheaded
+- Catherine Parr - Survived
 
 ---
 
-# Quiz Questions
+# Stage 1 Quiz
 
 ## Question 1
 
@@ -110,6 +116,8 @@ How many wives did Henry VIII have?
 
 **Correct Answer: C. Six**
 
+---
+
 ## Question 2
 
 Who was Henry VIII's second wife?
@@ -120,6 +128,8 @@ Who was Henry VIII's second wife?
 - D. Anne of Cleves
 
 **Correct Answer: B. Anne Boleyn**
+
+---
 
 ## Question 3
 
@@ -132,9 +142,11 @@ Why was having a male heir important to Henry VIII?
 
 **Correct Answer: B. He wanted a son to succeed him as king**
 
+---
+
 ## Question 4
 
-Which wife gave birth to Henry's son Edward?
+Which wife gave birth to Henry VIII's son Edward?
 
 - A. Catherine of Aragon
 - B. Anne Boleyn
@@ -142,6 +154,8 @@ Which wife gave birth to Henry's son Edward?
 - D. Catherine Howard
 
 **Correct Answer: C. Jane Seymour**
+
+---
 
 ## Question 5
 
@@ -162,4 +176,4 @@ You have completed your Tudor crash course.
 
 Now the clock is ticking...
 
-Answer the 5 questions correctly to continue your mission and get one step closer to rescuing Anne Boleyn!
+Answer the 5 questions to continue your mission and get one step closer to rescuing Anne Boleyn!
