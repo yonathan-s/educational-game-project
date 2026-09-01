@@ -2,7 +2,6 @@
 -- SEED DATA
 -- =========================================
 
-
 -- Insert Test User
 INSERT INTO users (username, password_hash, points)
 VALUES
@@ -10,25 +9,29 @@ VALUES
 
 
 -- =========================================
--- LEVEL 1 - THE TUDORS
+-- LEVEL 1 - HENRY VIII
 -- =========================================
 
 INSERT INTO levels (level_number, level_name)
 VALUES
-    (1, 'The Tudors');
+    (1, 'Henry VIII');
 
 
 -- =========================================
--- STAGE 1 - HENRY VIII AND HIS WIVES
+-- LEVEL 1 STAGES
 -- =========================================
 
 INSERT INTO stages (level_id, stage_number, stage_name, points)
 VALUES
-    (1, 1, 'Henry VIII and His Wives', 100);
+    (1, 1, 'Henry VIII and His Wives', 100),
+    (1, 2, 'Henry VIII and the Male Heir', 100),
+    (1, 3, 'The English Reformation', 100),
+    (1, 4, 'Henry VIII and the Church', 100);
 
 
 -- =========================================
 -- STAGE 1 QUESTIONS
+-- Henry VIII and His Wives
 -- =========================================
 
 INSERT INTO questions (stage_id, question_text)
@@ -46,7 +49,6 @@ VALUES
 
 INSERT INTO answers (question_id, answer_text, is_correct)
 VALUES
-
     -- Question 1
     (1, 'Four', FALSE),
     (1, 'Five', FALSE),
@@ -84,7 +86,7 @@ VALUES
 
 INSERT INTO trophies (level_id, trophy_name, description)
 VALUES
-    (1, 'Tudor History Master', 'Completed the Tudor History level');
+    (1, 'Henry VIII History Master', 'Completed the Henry VIII level');
 
 
 -- =========================================
