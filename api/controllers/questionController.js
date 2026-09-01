@@ -38,9 +38,16 @@ const submitAnswer = async (req, res) => {
         }
         const stage = await Stage.getOneById(userStage.current_stage_id)
 
+        console.log("stage:", stage);
+        console.log("stage points:", stage.points);
+
         const updatedUser = await questionModel.addPoints(userId, stage.points)
 
-        res.status(200).json({correct: true, message: "Correct answer!"})
+        const nextStage = await Stage.getNextStage(stage.level_id, stage.stage_number)
+
+        await Stage.updateUserStage(userId, stage.level_id, nextStage.id)
+
+        res.status(200).json({correct: true, message: "Correct answer!", points_awarded: stage.points, total_points: updatedUser.points, next_stage: nextStage.id})
     } catch (err) {
         res.status(500).json({error: err.message})
     }

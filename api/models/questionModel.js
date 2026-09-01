@@ -23,7 +23,7 @@ class QuestionModel {
     }
     
     async addPoints(userId, points) {
-        const res = await db.query('UPDATE users SET points = points + $1 WHERE id = $2 RETURNING id, username, points;', [points, userId])
+        const res = await db.query('UPDATE users SET points = COALESCE(points, 0) + $1 WHERE id = $2 RETURNING id, username, points;', [points, userId])
         return res.rows[0]
     }
 }
