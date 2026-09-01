@@ -145,14 +145,14 @@ Which wife gave birth to Henry's son Edward?
 
 ## Question 5
 
-Who was Henry VIII's final wife?
+What major religious change took place during Henry VIII's reign?
 
-- A. Anne of Cleves
-- B. Catherine Howard
-- C. Jane Seymour
-- D. Catherine Parr
+- A. England became a Buddhist country
+- B. England joined the Orthodox Church
+- C. Henry rejected the Pope's authority and became head of the Church of England
+- D. England stopped practising Christianity
 
-**Correct Answer: D. Catherine Parr**
+**Correct Answer: C. Henry rejected the Pope's authority and became head of the Church of England**
 
 ---
 
