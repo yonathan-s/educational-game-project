@@ -96,16 +96,17 @@ body {
 }
 
 .button {
+  display: flex;
   width: 100%;
   padding: 14px;
   margin-top: 6px;
   font-family: "Cinzel", serif;
   font-size: 1rem;
   letter-spacing: 0.05em;
+  justify-content: center;
   color: #f3e9c9;
   background: var(--crimson);
   border: 1px solid var(--gold);
-  cursor: pointer;
 }
 
 .button:hover {
