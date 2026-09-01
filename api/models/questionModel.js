@@ -21,7 +21,11 @@ class QuestionModel {
         const res = await db.query('SELECT is_correct FROM answers WHERE id = $1;', [answerId])
         return res.rows[0]
     }
-
+    
+    async addPoints(userId, points) {
+        const res = await db.query('UPDATE users SET points = points + $1 WHERE id = $2 RETURNING id, username, points;', [points, userId])
+        return res.rows[0]
+    }
 }
 
 module.exports = QuestionModel
