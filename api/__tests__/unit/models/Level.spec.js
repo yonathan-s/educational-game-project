@@ -37,10 +37,9 @@ describe("Level", () => {
 
       const result = await Level.getOneById(1);
 
-      // Assert
       expect(result).toBeInstanceOf(Level);
       expect(result.level_name).toBe("LVL 1 name");
-	  expect(result.level_number).toBe(1);
+	    expect(result.level_number).toBe(1);
       expect(result.id).toBe(1);
       expect(db.query).toHaveBeenCalledWith(
         "SELECT * FROM levels WHERE id = $1",
