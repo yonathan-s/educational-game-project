@@ -19,4 +19,20 @@ const getQuestion = async (req, res) => {
     }
 }
 
-module.exports = { getQuestion }
+const submitAnswer = async (req, res) => {
+    try {
+        const { answer_id } = req.body
+        const answer = await questionModel.checkAnswer(answer_id)
+        if(!answer) {
+            return res.status(404).json({error: "Answer not found"})
+        }
+        if(answer.is_correct) {
+            return res.status(200).json({correct: true, message: "Correct answer!"})
+        }
+        res.status(200).json({correct: false, message: "Incorrect answer. Try again!"})
+    } catch (err) {
+        res.status(500).json({error: err.message})
+    }
+}
+
+module.exports = { getQuestion, submitAnswer }

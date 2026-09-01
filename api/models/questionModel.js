@@ -17,6 +17,11 @@ class QuestionModel {
         return res.rows
     }
 
+    async checkAnswer(answerId) {
+        const res = await db.query('SELECT is_correct FROM answers WHERE id = $1;', [answerId])
+        return res.rows[0]
+    }
+
 }
 
 module.exports = QuestionModel
