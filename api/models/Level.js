@@ -8,7 +8,10 @@ class Level {
 	}
 
 	static async getAll() {
-		const response = await db.query("SELECT * from levels")
+		const response = await db.query("SELECT * FROM levels")
+		if (response.rows.length === 0){
+			throw new Error("No levels available.")
+		}
 		return response.rows.map(l => new Level(l))
 	}
 
