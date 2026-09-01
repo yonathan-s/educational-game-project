@@ -8,7 +8,7 @@ class Stage {
 		this.stage_name = stage_name
 	}
 
-	static async getById(id) {
+	static async getOneById(id) {
 		const response = await db.query("SELECT * FROM stages WHERE id = $1", [id])
 		if (response.rows.length != 1) {
 			throw new Error("Unable to locate stage.")
