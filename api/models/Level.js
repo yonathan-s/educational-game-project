@@ -20,3 +20,5 @@ class Level {
         return new Level(response.rows[0]);
     }
 }
+
+module.exports = Level
