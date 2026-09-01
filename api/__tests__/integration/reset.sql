@@ -1,5 +1,4 @@
-TRUNCATE levels RESTART IDENTITY;
-TRUNCATE stages RESTART IDENTITY;
+TRUNCATE TABLE levels RESTART IDENTITY CASCADE;
 
 INSERT INTO levels (level_number, level_name) 
 VALUES
@@ -11,4 +10,4 @@ VALUES
     (1, 1, 'Early Civilisations', 100),
     (1, 2, 'Ancient Egypt', 100),
     (1, 3, 'Ancient Greece', 100),
-    (1, 4, 'Ancient Rome', 200),
+    (1, 4, 'Ancient Rome', 200);
