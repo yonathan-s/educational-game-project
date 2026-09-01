@@ -11,4 +11,12 @@ class Level {
 		const response = await db.query("SELECT * from levels")
 		return response.rows.map(l => new Level(l))
 	}
+
+    static async getOneById(id) {
+        const response = await db.query("SELECT * FROM levels WHERE id = $1", [id]);
+        if (response.rows.length != 1) {
+            throw new Error("Unable to locate level.")
+        }
+        return new Level(response.rows[0]);
+    }
 }
