@@ -1,0 +1,138 @@
+:root {
+  --crimson: #8f2c26;
+  --crimson-dark: #6f2119;
+  --gold: #836210;
+  --gold-bright: #eedcb3;
+  --parchment: #ece0bd;
+  --parchment-line: #ad8610;
+  --sage: #52684a;
+  --text-dark: #2a2116;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  font-family: "Cormorant Garamond";
+  color: var(--text-dark);
+  background-image: url("../assets/tudor\ background\ image\ \'.jpg");
+  background-size: 480px;
+}
+
+.page {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  font-size: 2.6rem;
+  letter-spacing: 0.03em;
+  color: var(--gold-bright);
+  text-align: center;
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  color: #e6e3da;
+  font-size: 1.05rem;
+  font-style: italic;
+  margin: 0 0 32px;
+}
+
+.card {
+  width: 100%;
+  background: var(--parchment);
+  border: 1px solid var(--gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  padding: 40px 44px 34px;
+}
+
+.card h2 {
+  font-weight: 500;
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 0 0 28px;
+  color: var(--crimson-dark);
+}
+
+.input {
+  margin-bottom: 20px;
+}
+
+.input label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--sage);
+  margin-bottom: 7px;
+  text-transform: uppercase;
+}
+
+.input input {
+  width: 100%;
+  padding: 11px 13px;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  background: #f6efd9;
+  border: 1px solid var(--parchment-line);
+  outline: none;
+}
+
+.input input:focus {
+  border-color: var(--crimson);
+}
+
+.button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 6px;
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: #f3e9c9;
+  background: var(--crimson);
+  border: 1px solid var(--gold);
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--crimson-dark);
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--parchment-line);
+  margin: 26px 0 16px;
+}
+
+.switch {
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--text-dark);
+}
+
+.switch a {
+  color: var(--crimson);
+  font-weight: 600;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #8a7a4e;
+  margin-top: 4px;
+}
