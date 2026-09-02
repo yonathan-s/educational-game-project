@@ -1,11 +1,12 @@
 const db = require('../database/connect')
 
 class Stage {
-	constructor({ id, level_id, stage_number, stage_name }) {
+	constructor({ id, level_id, stage_number, stage_name, points }) {
 		this.id = id
 		this.level_id = level_id
 		this.stage_number = stage_number
 		this.stage_name = stage_name
+		this.points = points
 	}
 
 	static async getOneById(id) {
