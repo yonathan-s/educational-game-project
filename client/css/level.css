@@ -23,9 +23,7 @@ body {
   padding: 48px 24px;
   font-family: "Cormorant Garamond", "Georgia", serif;
   color: var(--text-dark);
-  background-image:
-    linear-gradient(rgba(20, 27, 26, 0.75), rgba(20, 27, 26, 0.75)),
-    url("../assets/tudor\ background\ image\ \'.jpg");
+  background-image: url("../assets/tudor\ background\ image\ \'.jpg");
   background-size: 480px;
 }
 
@@ -112,9 +110,11 @@ body {
 }
 
 .stage-item {
+  display: inline-block;
+  margin: 0;
   padding: 10px 20px;
   border: 1px solid var(--parchment-line);
-  background: #f6efd9;
+  background: var(--parchment);
   font-size: 0.95rem;
   text-decoration: none;
   color: var(--text-dark);
