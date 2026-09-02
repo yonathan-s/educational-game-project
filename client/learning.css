@@ -1,0 +1,343 @@
+/* =========================================
+   HISTORY ESCAPE - HENRY VIII LEARNING PAGE
+   ========================================= */
+
+
+/* ----- GENERAL PAGE ----- */
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    color: #2b2118;
+
+    background:
+        radial-gradient(circle at top, rgba(255,255,255,0.15), transparent 40%),
+        linear-gradient(
+            rgba(60, 35, 20, 0.18),
+            rgba(60, 35, 20, 0.18)
+        ),
+        #d8c3a5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ----- MAIN TITLE ----- */
+
+h1 {
+    width: 100%;
+    box-sizing: border-box;
+
+    margin: 0 0 30px 0;
+    padding: 25px;
+
+    text-align: center;
+
+    background-color: #651f2b;
+    color: #f5e6c8;
+
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+
+    border-bottom: 6px solid #b28a45;
+
+    text-shadow: 2px 2px 3px #2b1015;
+}
+
+
+/* ----- LEARNING CARD ----- */
+
+.learning-page {
+    display: none;
+
+    width: 80%;
+    max-width: 850px;
+
+    box-sizing: border-box;
+
+    background-color: #f3e5c8;
+
+    padding: 35px 45px;
+    margin: 20px auto;
+
+    border: 3px solid #7a5b35;
+    border-radius: 8px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.35),
+        inset 0 0 35px rgba(120, 80, 40, 0.12);
+
+    position: relative;
+}
+
+
+/* Small Tudor-style border inside card */
+
+.learning-page::before {
+    content: "";
+
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+
+    border: 1px solid rgba(101, 31, 43, 0.45);
+
+    pointer-events: none;
+}
+
+
+/* ----- HEADINGS ----- */
+
+.learning-page h2 {
+    color: #651f2b;
+
+    text-align: center;
+
+    font-size: 2rem;
+
+    margin-top: 0;
+    margin-bottom: 25px;
+
+    border-bottom: 2px solid #b28a45;
+
+    padding-bottom: 12px;
+}
+
+
+.learning-page h3 {
+    color: #4c251c;
+
+    font-size: 1.35rem;
+
+    margin-top: 25px;
+}
+
+
+/* ----- TEXT ----- */
+
+.learning-page p {
+    font-size: 1.1rem;
+
+    line-height: 1.7;
+
+    margin-bottom: 16px;
+}
+
+
+.learning-page ul {
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+}
+
+
+/* ----- IMPORTANT WORDS ----- */
+
+strong {
+    color: #651f2b;
+}
+
+
+/* ----- NAVIGATION AREA ----- */
+
+body > div:last-of-type {
+    margin: 15px 0 40px 0;
+
+    display: flex;
+
+    gap: 20px;
+
+    justify-content: center;
+}
+
+
+/* ----- BUTTONS ----- */
+
+button {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    padding: 12px 28px;
+
+    border: 2px solid #b28a45;
+    border-radius: 6px;
+
+    background-color: #651f2b;
+    color: #fff3d6;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.2s,
+        background-color 0.2s,
+        box-shadow 0.2s;
+}
+
+
+/* Button hover */
+
+button:hover {
+    background-color: #872c3c;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* When button is clicked */
+
+button:active {
+    transform: translateY(1px);
+}
+
+
+/* ----- START MISSION BUTTON ----- */
+
+#startQuiz {
+    display: block;
+
+    margin: 30px auto 10px auto;
+
+    padding: 15px 35px;
+
+    font-size: 1.15rem;
+
+    background-color: #3d2618;
+
+    border-color: #c7a457;
+}
+
+
+#startQuiz:hover {
+    background-color: #5a3823;
+}
+
+
+/* ----- WIFE / CHARACTER IMAGE ----- */
+
+.character-image {
+    display: block;
+
+    width: 180px;
+    max-width: 100%;
+
+    margin: 20px auto;
+
+    border: 5px solid #b28a45;
+
+    border-radius: 4px;
+
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ----- CHARACTER SECTION ----- */
+
+.character {
+    background-color: rgba(255, 255, 255, 0.25);
+
+    padding: 15px 20px;
+
+    margin: 20px 0;
+
+    border-left: 5px solid #651f2b;
+
+    border-radius: 4px;
+}
+
+
+/* ----- MISSION WARNING / STORY BOX ----- */
+
+.mission-box {
+    background-color: #651f2b;
+
+    color: #fff3d6;
+
+    padding: 18px 22px;
+
+    margin: 25px 0;
+
+    border: 3px solid #b28a45;
+
+    border-radius: 6px;
+
+    text-align: center;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+.mission-box strong {
+    color: #ffd98a;
+}
+
+
+/* ----- MOBILE / SMALL SCREEN ----- */
+
+@media (max-width: 700px) {
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+
+    .learning-page {
+        width: 92%;
+
+        padding: 25px;
+    }
+
+
+    .learning-page h2 {
+        font-size: 1.6rem;
+    }
+
+
+    .learning-page p,
+    .learning-page ul {
+        font-size: 1rem;
+    }
+
+
+    button {
+        padding: 10px 20px;
+    }
+
+}
+.tudor-frame {
+    width: 180px;
+    margin: 20px auto;
+
+    /* Gold Tudor-style frame */
+    border: 8px solid #9b762d;
+    outline: 3px solid #4b2e16;
+
+    padding: 5px;
+    background-color: #c9a44c;
+
+    box-shadow:
+        0 0 0 3px #d6b65c,
+        0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.tudor-frame img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+
+    border: 2px solid #3b2414;
+}
