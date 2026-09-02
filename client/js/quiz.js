@@ -11,7 +11,32 @@ const quizPointsEl = document.getElementById("quiz-points-display");
 const quizProgressLabel = document.getElementById("quiz-progress-label");
 const quizProgressFill = document.getElementById("quiz-progress-fill");
 
+async function loadQuizData() {
+	try {
+		// const response = await fetch("https://localhost:3031/questions")
+		// quizData = await response.json()
 
+		quizData = [
+			{
+				question: "Who was the reigning monarch of England in 1536?",
+				choices: ["Henry VIII", "Henry VII", "Edward VI", "Mary I"],
+				correct: "Henry VIII"
+			},
+			{
+				question: "Hampton Court Palace was originally built for which Cardinal?",
+				choices: ["Thomas Wolsey", "Thomas Cranmer", "Thomas More", "Oliver Cromwell"],
+				correct: "Thomas Wolsey"
+			},
+			{
+				question: "Which of Henry VIII's wives died at Hampton Court Palace?",
+				choices: ["Jane Seymour", "Anne Boleyn", "Catherine of Aragon", "Catherine Howard"],
+				correct: "Jane Seymour"
+			}
+   	 	];
+	} catch(err) {
+		
+	}
+}
 
 
 
