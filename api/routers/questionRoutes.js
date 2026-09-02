@@ -4,6 +4,6 @@ const authenticator = require('../middleware/authenticator')
 const questionRouter = Router()
 
 questionRouter.get('/', authenticator, getQuestion)
-questionRouter.post('/answer', submitAnswer)
+questionRouter.post('/answer', authenticator, submitAnswer)
 
 module.exports = questionRouter
