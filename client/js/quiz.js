@@ -4,12 +4,23 @@ let score = 0;
 let timeLeft = 30;
 let timerInterval;
 
+const viewQuiz = document.getElementById("state-quiz")
+const viewFeedback = document.getElementById("state-feedback")
+
 const questionTextEl = document.getElementById("question-text");
 const optionsGridEl = document.getElementById("options-grid");
 const timerDisplayEl = document.getElementById("timer-display");
 const quizPointsEl = document.getElementById("quiz-points-display");
 const quizProgressLabel = document.getElementById("quiz-progress-label");
 const quizProgressFill = document.getElementById("quiz-progress-fill");
+
+const feedbackProgressLabel = document.getElementById("feedback-progress-label")
+const feedbackProgressFill = document.getElementById("feedback-progress-fill")
+const feedbackPointsEl = document.getElementById("feedback-points-display")
+const feedbackBadgeStatus = document.getElementById("feedback-badge-status")
+const feedbackBadgePoints = document.getElementById("feedback-badge-points")
+const feedbackMessageText = document.getElementById("feedback-message-text")
+const continueBtn = document.getElementById("continue-btn")
 
 async function loadQuizData() {
     try {
@@ -56,6 +67,9 @@ function startQuiz() {
 	currentQuestion = 0
 	score = 0
 
+	viewQuiz.style.display = "block"
+	viewFeedback.style.display = "none"
+
     renderQuestion();
 }
 
@@ -63,86 +77,82 @@ function renderQuestion() {
 	clearInterval(timerInterval)
 	timeLeft = 30
 	timerDisplayEl.textContent = timeLeft
-
+	startTimer()
 
     const q = quizData[currentQuestion];
     questionTextEl.textContent = q.question;
     optionsGridEl.innerHTML = "";
+
+	const displayNum = currentQuestion + 1
+	const progressPercentage = (displayNum / quizData.length) * 100
+
+	quizProgressLabel.textContent = `Question ${displayNum}/${quizData.length}`
+	quizProgressFill.style.width = `${progressPercentage}%`
+	quizPointsEl.textContent = `${score * 100} pts`
 
     q.choices.forEach((choice) => {
         const btn = document.createElement("button");
 		btn.className = "option-btn"
 		btn.style.cursor = "pointer"
         btn.textContent = choice;
-        btn.addEventListener("click", () => selectAnswer(choice, q.correct));
+        btn.addEventListener("click", () => evaluateChoice(choice, q.correct));
         optionsGridEl.appendChild(btn);
     });
 }
 
-// function selectAnswer(button, correctAnswer) {
-//     const selected = button.textContent;
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        timerDisplayEl.textContent = timeLeft;
 
-//     Array.from(choicesEl.children).forEach((btn) => {
-//         btn.disabled = true;
-//         if (btn.textContent === correctAnswer) {
-//             btn.style.borderColor = "#00ffcc";
-//         }
-//         if (btn.textContent === selected && selected !== correctAnswer) {
-//             btn.style.borderColor = "#ff4d4d";
-//         }
-//     });
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            evaluateChoice(null, quizData[currentQuestion].correct)
+        }
+    }, 1000);
+}
 
-//     if (selected === correctAnswer) {
-//         score++;
-//     }
+function evaluateChoice(selectedChoice, correctChoice) {
+	clearInterval(timerInterval)
 
-//     nextBtn.style.display = "inline-block";
-// }
+	viewQuiz.style.display = "none"
+	viewFeedback.style.display = "block"
 
-// function nextQuestion() {
-//     currentQuestion++;
-//     if (currentQuestion < quizData.length) {
-//         showQuestion();
-//         nextBtn.style.display = "none";
-//     } else {
-//         endQuiz();
-//     }
-// }
+	const displayNum = currentQuestion + 1
+	const progressPercentage = (displayNum / quizData.length) * 100
+	feedbackProgressLabel.textContent = `Question ${displayNum}/${quizData.length}`
+	feedbackProgressFill.style.width = `${progressPercentage}%`
 
-// function startTimer() {
-//     timeEl.textContent = timeLeft;
+	if (selectedChoice === correctChoice) {
+		score++
+		feedbackBadgeStatus.innerHTML = "WELL<br />DONE"
+		feedbackBadgePoints.textContent = "+100pts"
+		feedbackMessageText.textContent = "Good job answering the question, you are one step closer to escape."
 
-//     timer = setInterval(() => {
-//         timeLeft--;
-//         timeEl.textContent = timeLeft;
+	} else if (selectedChoice === null) {
+		feedbackBadgeStatus.innerHTML = "TIME<br />OUT"
+		feedbackBadgePoints.textContent = "0pts"
+		feedbackMessageText.textContent = "Sorry, your time ran out. Have another look and try the question again."
+	} else {
+		feedbackBadgeStatus.innerHTML = "NOT<br />QUITE"
+		feedbackBadgePoints.textContent = "0pts"
+		feedbackMessageText.textContent = "That isn't right. Have another look and try the question again."
+	}
 
-//         if (timeLeft <= 0) {
-//             clearInterval(timer);
-//             endQuiz();
-//         }
-//     }, 1000);
-// }
+	feedbackPointsEl.textContent = `${score * 100} pts`
+}
 
-// function endQuiz() {
-//     clearInterval(timer);
-//     quizContainer.classList.add("hidden");
-//     resultEl.textContent = `You scored ${score} out of ${quizData.length}!`;
-//     resultEl.classList.remove("hidden");
-//     restartBtn.classList.remove("hidden");
-// }
+function advanceQuiz() {
+    currentQuestion++;
+    if (currentQuestion < quizData.length) {
+		viewFeedback.style.display = "none"
+		viewQuiz.style.display = "block"
+        renderQuestion()
+    } else {
+        console.log("End Quiz")
+    }
+}
 
-// nextBtn.addEventListener("click", nextQuestion);
+continueBtn.addEventListener("click", advanceQuiz)
 
-// restartBtn.addEventListener("click", () => {
-//     currentQuestion = 0;
-//     score = 0;
-//     timeLeft = 30;
-//     resultEl.classList.add("hidden");
-//     restartBtn.classList.add("hidden");
-//     quizContainer.classList.remove("hidden");
-//     timeEl.textContent = timeLeft;
-//     startQuiz();
-// });
-
-// // Start on page load
-// startQuiz();
+loadQuizData()
