@@ -4,7 +4,7 @@ const questionModel = new QuestionModel()
 
 const getQuestion = async (req, res) => {
     try {
-        const userId = 1
+        const userId = req.user.id
         const stage = await questionModel.getUserStage(userId)
         if(!stage) {
             return res.status(404).json({error: "User progress not found"})
@@ -22,7 +22,7 @@ const getQuestion = async (req, res) => {
 
 const submitAnswer = async (req, res) => {
     try {
-        const userId = 1
+        const userId = req.user.id
         const { answer_id } = req.body
         const answer = await questionModel.checkAnswer(answer_id)
         if(!answer) {
