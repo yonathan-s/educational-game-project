@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henry VIII Learning</title>
+</head>
+
+<body>
+
+    <h1>Level 1: Henry VIII</h1>
+
+    <!-- PAGE 1 -->
+    <section class="learning-page active">
+        <h2>Your Mission</h2>
+
+        <p>You have travelled back in time to Tudor England in 1536.</p>
+
+        <p>Anne Boleyn has been imprisoned in the Tower of London and is facing execution.</p>
+
+        <p>
+            Your mission is to use your knowledge of Henry VIII and Tudor England
+            to rescue Anne Boleyn before it is too late.
+        </p>
+    </section>
+
+
+    <!-- PAGE 2 -->
+    <section class="learning-page">
+        <h2>Meet Henry VIII</h2>
+
+        <p>
+            Henry VIII became King of England in 1509 and ruled until his death in 1547.
+        </p>
+
+        <p>He was the second Tudor king.</p>
+
+        <p>Henry is famous for:</p>
+
+        <ul>
+            <li>Having six wives</li>
+            <li>Wanting a male heir</li>
+            <li>Breaking with the authority of the Pope</li>
+            <li>Changing the Church in England</li>
+        </ul>
+    </section>
+
+
+    <!-- PAGE 3 -->
+    <section class="learning-page">
+        <h2>Henry VIII's Six Wives</h2>
+
+        <h3>Catherine of Aragon</h3>
+        <p>
+            Catherine was Henry's first wife. They had a daughter called Mary,
+            but they did not have a surviving son.
+        </p>
+
+        <h3>Anne Boleyn</h3>
+        <p>
+            Anne was Henry's second wife. She gave birth to Elizabeth,
+            who later became Queen Elizabeth I.
+        </p>
+
+        <p>
+            Anne was arrested and executed in 1536.
+        </p>
+    </section>
+
+
+    <!-- PAGE 4 -->
+    <section class="learning-page">
+        <h2>The Other Wives</h2>
+
+        <h3>Jane Seymour</h3>
+        <p>
+            Jane gave Henry the son he wanted, Edward.
+            She died shortly after Edward was born.
+        </p>
+
+        <h3>Anne of Cleves</h3>
+        <p>
+            Anne was Henry's fourth wife. Their marriage was annulled.
+        </p>
+
+        <h3>Catherine Howard</h3>
+        <p>
+            Catherine was Henry's fifth wife and was later executed.
+        </p>
+
+        <h3>Catherine Parr</h3>
+        <p>
+            Catherine was Henry's sixth and final wife.
+            She survived Henry VIII.
+        </p>
+    </section>
+
+
+    <!-- PAGE 5 -->
+    <section class="learning-page">
+        <h2>The Male Heir</h2>
+
+        <p>
+            Henry desperately wanted a son who could become king after him.
+        </p>
+
+        <p>
+            Catherine of Aragon had a daughter called Mary.
+        </p>
+
+        <p>
+            Anne Boleyn had a daughter called Elizabeth.
+        </p>
+
+        <p>
+            Jane Seymour finally gave Henry a son called Edward in 1537.
+        </p>
+
+        <p>
+            Edward later became King Edward VI.
+        </p>
+    </section>
+
+
+    <!-- PAGE 6 -->
+    <section class="learning-page">
+        <h2>Henry VIII and the Church</h2>
+
+        <p>
+            Henry wanted to end his marriage to Catherine of Aragon
+            so that he could marry Anne Boleyn.
+        </p>
+
+        <p>
+            The Pope would not grant Henry the annulment he wanted.
+        </p>
+
+        <p>
+            Henry eventually rejected the Pope's authority in England.
+        </p>
+
+        <p>
+            This became an important part of the English Reformation.
+        </p>
+    </section>
+
+
+    <!-- PAGE 7 -->
+    <section class="learning-page">
+        <h2>Key Facts</h2>
+
+        <ul>
+            <li>Henry VIII became king in 1509.</li>
+            <li>Henry VIII had six wives.</li>
+            <li>Anne Boleyn was his second wife.</li>
+            <li>Anne Boleyn was the mother of Elizabeth I.</li>
+            <li>Jane Seymour was the mother of Edward VI.</li>
+            <li>Catherine Parr survived Henry VIII.</li>
+            <li>Henry wanted a male heir.</li>
+            <li>Henry rejected the authority of the Pope.</li>
+            <li>This was part of the English Reformation.</li>
+        </ul>
+    </section>
+
+
+    <!-- PAGE 8 -->
+    <section class="learning-page">
+        <h2>Ready for Your Mission?</h2>
+
+        <p>You have completed your crash course.</p>
+
+        <p>
+            Now use what you have learned to rescue Anne Boleyn!
+        </p>
+
+        <button id="startQuiz">Start Mission</button>
+    </section>
+
+
+    <!-- NAVIGATION BUTTONS -->
+    <div>
+        <button id="backButton">Back</button>
+        <button id="nextButton">Next</button>
+    </div>
+
+
+    <script>
+        const pages = document.querySelectorAll(".learning-page")
+
+        const nextButton = document.querySelector("#nextButton")
+        const backButton = document.querySelector("#backButton")
+        const startQuiz = document.querySelector("#startQuiz")
+
+        let currentPage = 0
+
+
+        function showPage() {
+
+            pages.forEach(page => {
+                page.style.display = "none"
+            })
+
+            pages[currentPage].style.display = "block"
+
+
+            if (currentPage === 0) {
+                backButton.style.display = "none"
+            } else {
+                backButton.style.display = "inline"
+            }
+
+
+            if (currentPage === pages.length - 1) {
+                nextButton.style.display = "none"
+            } else {
+                nextButton.style.display = "inline"
+            }
+        }
+
+
+        nextButton.addEventListener("click", () => {
+
+            if (currentPage < pages.length - 1) {
+                currentPage++
+                showPage()
+            }
+
+        })
+
+
+        backButton.addEventListener("click", () => {
+
+            if (currentPage > 0) {
+                currentPage--
+                showPage()
+            }
+
+        })
+
+
+        startQuiz.addEventListener("click", () => {
+
+            window.location.href = "quiz.html"
+
+        })
+
+
+        showPage()
+    </script>
+
+</body>
+
+</html>
