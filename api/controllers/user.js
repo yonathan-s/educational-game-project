@@ -12,6 +12,9 @@ async function register(req, res) {
       data["password_hash"] = await bcrypt.hash(data.password, salt);
       console.log(data)
       const result = await User.create(data);
+      console.log(result);
+      console.log(result.id);
+      await User.createProgress(result.id)
   
       res.status(201).send("User successfully created");
     } catch (err) {
@@ -29,7 +32,7 @@ async function login(req, res) {
         const match = await bcrypt.compare(data.password, user.password_hash)
 
         if (match) {
-            const payload = { username: user.username}
+            const payload = { id: user.id, username: user.username}
             const sendToken = (err, token) => {
                 if(err){
                     throw new Error('Error when generating token')

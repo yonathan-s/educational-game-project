@@ -2,7 +2,8 @@ const db = require('../database/connect');
 
 class User {
 
-    constructor({username, password_hash }) {
+    constructor({ id, username, password_hash }) {
+        this.id = id;
         this.username = username;
         this.password_hash = password_hash;
     }
@@ -19,6 +20,11 @@ class User {
             throw new Error("Unable to locate user.");
         }
         return new User(response.rows[0]);
+    }
+
+    static async createProgress(userId) {
+        const response = await db.query("INSERT INTO user_progress (user_id, level_id, current_stage_id) VALUES ($1, $2, $3) RETURNING *;", [userId, 1, 1])
+        return response.rows[0]
     }
 
 }

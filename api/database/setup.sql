@@ -12,7 +12,7 @@ CREATE TABLE users (
     id INT GENERATED ALWAYS AS IDENTITY,
     username VARCHAR(50) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
-    points INT DEFAULT 0,
+    points INT NOT NULL DEFAULT 0,
     PRIMARY KEY (id)
 );
 

@@ -8,6 +8,7 @@ function authenticator(req, res, next){
             if(err) {
                 res.status(403).send({err: 'Invalid Token'})
             } else{
+                req.user = data
                 next()
             }
         })
