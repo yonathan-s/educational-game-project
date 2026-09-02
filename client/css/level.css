@@ -23,9 +23,7 @@ body {
   padding: 48px 24px;
   font-family: "Cormorant Garamond", "Georgia", serif;
   color: var(--text-dark);
-  background-image:
-    linear-gradient(rgba(20, 27, 26, 0.75), rgba(20, 27, 26, 0.75)),
-    url("../assets/tudor\ background\ image\ \'.jpg");
+  background-image: url("../assets/tudor\ background\ image\ \'.jpg");
   background-size: 480px;
 }
 
