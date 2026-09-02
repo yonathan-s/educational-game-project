@@ -9,7 +9,7 @@ async function register(req, res) {
   
       const salt = await bcrypt.genSalt(parseInt(process.env.BCRYPT_SALT_ROUNDS));
   
-      data["password_hash"] = await bcrypt.hash(data.password_hash, salt);
+      data["password_hash"] = await bcrypt.hash(data.password, salt);
       console.log(data)
       const result = await User.create(data);
   
@@ -26,7 +26,7 @@ async function login(req, res) {
         if(!user){
             throw new Error('No user with this username')
         }
-        const match = await bcrypt.compare(data.password_hash, user.password_hash)
+        const match = await bcrypt.compare(data.password, user.password_hash)
 
         if (match) {
             const payload = { username: user.username}
