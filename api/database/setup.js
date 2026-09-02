@@ -4,17 +4,10 @@ require('dotenv').config()
 const db = require('./connect')
 
 const setupSql = fs.readFileSync('./database/setup.sql').toString()
-const seedSql = fs.readFileSync('./database/seed.sql').toString()
 
 db.query(setupSql)
-    .then(() => {
-        return db.query(seedSql)
-    })
-    .then(() => {
+    .then(data => {
         db.end()
-        console.log("Set-up and seed complete.")
+        console.log("Setup complete");
     })
-    .catch(error => {
-        console.log(error)
-        db.end()
-    })
+    .catch(error => console.log(error))
