@@ -30,8 +30,8 @@ VALUES
 
 
 -- =========================================
--- STAGE 1 QUESTIONS
--- Henry VIII and His Wives
+-- STAGE 1 QUESTION BANK
+-- 15 questions - game can randomly select 5
 -- =========================================
 
 INSERT INTO questions (stage_id, question_text)
@@ -40,11 +40,21 @@ VALUES
     (1, 'Who was Henry VIII''s second wife?'),
     (1, 'Why was having a male heir important to Henry VIII?'),
     (1, 'Which wife gave birth to Henry VIII''s son Edward?'),
-    (1, 'What major religious change took place during Henry VIII''s reign?');
+    (1, 'What major religious change took place during Henry VIII''s reign?'),
+    (1, 'Who was Henry VIII''s first wife?'),
+    (1, 'Which of Henry VIII''s wives was the mother of Elizabeth I?'),
+    (1, 'Who was Henry VIII''s final wife?'),
+    (1, 'In what year did Henry VIII become King of England?'),
+    (1, 'Which wife of Henry VIII was his marriage to after Jane Seymour?'),
+    (1, 'What was the name of Henry VIII''s son?'),
+    (1, 'Who was the head of the Roman Catholic Church whose authority Henry rejected?'),
+    (1, 'What was the name of the religious change that took place during Henry VIII''s reign?'),
+    (1, 'Which of Henry VIII''s wives was executed in 1536?'),
+    (1, 'Which wife survived Henry VIII?');
 
 
 -- =========================================
--- STAGE 1 ANSWERS
+-- ANSWERS
 -- =========================================
 
 INSERT INTO answers (question_id, answer_text, is_correct)
@@ -76,8 +86,68 @@ VALUES
     -- Question 5
     (5, 'England became a Buddhist country', FALSE),
     (5, 'England joined the Orthodox Church', FALSE),
-    (5, 'Henry rejected the Pope''s authority and became head of the Church of England', TRUE),
-    (5, 'England stopped practising Christianity', FALSE);
+    (5, 'Henry rejected the Pope''s authority in England', TRUE),
+    (5, 'England stopped practising Christianity', FALSE),
+
+    -- Question 6
+    (6, 'Anne Boleyn', FALSE),
+    (6, 'Catherine of Aragon', TRUE),
+    (6, 'Jane Seymour', FALSE),
+    (6, 'Catherine Parr', FALSE),
+
+    -- Question 7
+    (7, 'Catherine of Aragon', FALSE),
+    (7, 'Anne Boleyn', TRUE),
+    (7, 'Jane Seymour', FALSE),
+    (7, 'Anne of Cleves', FALSE),
+
+    -- Question 8
+    (8, 'Catherine Howard', FALSE),
+    (8, 'Jane Seymour', FALSE),
+    (8, 'Anne of Cleves', FALSE),
+    (8, 'Catherine Parr', TRUE),
+
+    -- Question 9
+    (9, '1485', FALSE),
+    (9, '1509', TRUE),
+    (9, '1536', FALSE),
+    (9, '1547', FALSE),
+
+    -- Question 10
+    (10, 'Anne of Cleves', TRUE),
+    (10, 'Catherine Parr', FALSE),
+    (10, 'Catherine of Aragon', FALSE),
+    (10, 'Anne Boleyn', FALSE),
+
+    -- Question 11
+    (11, 'Edward', TRUE),
+    (11, 'Arthur', FALSE),
+    (11, 'William', FALSE),
+    (11, 'Thomas', FALSE),
+
+    -- Question 12
+    (12, 'The Archbishop of Canterbury', FALSE),
+    (12, 'The Pope', TRUE),
+    (12, 'The King of France', FALSE),
+    (12, 'The Lord Chancellor', FALSE),
+
+    -- Question 13
+    (13, 'The Industrial Revolution', FALSE),
+    (13, 'The Restoration', FALSE),
+    (13, 'The English Reformation', TRUE),
+    (13, 'The Glorious Revolution', FALSE),
+
+    -- Question 14
+    (14, 'Catherine Parr', FALSE),
+    (14, 'Anne Boleyn', TRUE),
+    (14, 'Jane Seymour', FALSE),
+    (14, 'Anne of Cleves', FALSE),
+
+    -- Question 15
+    (15, 'Anne Boleyn', FALSE),
+    (15, 'Jane Seymour', FALSE),
+    (15, 'Catherine Howard', FALSE),
+    (15, 'Catherine Parr', TRUE);
 
 
 -- =========================================
