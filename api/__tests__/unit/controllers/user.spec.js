@@ -15,10 +15,8 @@ const mockStatus = jest.fn(() => ({
 
 const mockRes = { status: mockStatus };
 
-describe("Users controller", () => {
+describe("Users controller login", () => {
     beforeEach(() => jest.clearAllMocks());
-
-    afterAll(() => jest.resetAllMocks());
 
     describe("login", () => {
         let mockReq;
@@ -26,7 +24,7 @@ describe("Users controller", () => {
         beforeEach(() => {
             mockReq = {
                 body: {
-                    username: "TestUser",
+                    username: "testUser",
                     password: "password123",
                 },
             };
@@ -77,7 +75,7 @@ describe("Users controller", () => {
 
             jest.spyOn(bcrypt, "compare").mockResolvedValue(false);
 
-            await userController.login(mockReq, mockRes);
+            await usersController.login(mockReq, mockRes);
 
             expect(User.getOneByUsername).toHaveBeenCalledTimes(1);
             expect(bcrypt.compare).toHaveBeenCalledTimes(1);
@@ -87,7 +85,7 @@ describe("Users controller", () => {
                 error: "User could not be authenticated",
             });
         });
-        
+
         it("should return an error if user is not found", async () => {
             jest.spyOn(User, "getOneByUsername").mockRejectedValue(
                 new Error("Unable to locate user.")
@@ -106,3 +104,77 @@ describe("Users controller", () => {
 
     
 });
+
+
+
+
+describe("Users controller register", () => {
+    let mockReq;
+
+    beforeEach(() => {
+        jest.clearAllMocks()
+        
+        mockReq = {
+            body: {
+                username: "TestUser",
+                password: "password123"
+            }
+        };
+    });
+
+    it("should register a user with a 201 status code", async () => {
+        jest.spyOn(bcrypt, "genSalt")
+            .mockResolvedValue("testSalt");
+
+        jest.spyOn(bcrypt, "hash")
+            .mockResolvedValue("hashedPassword");
+
+        jest.spyOn(User, "create")
+            .mockResolvedValue({
+                id: 1,
+                username: "TestUser",
+                password_hash: "hashedPassword"
+            });
+
+        await usersController.register(mockReq, mockRes);
+
+        expect(bcrypt.genSalt).toHaveBeenCalledTimes(1);
+
+        expect(bcrypt.hash).toHaveBeenCalledWith(
+            "password123",
+            "testSalt"
+        );
+
+        expect(User.create).toHaveBeenCalledWith({
+            username: "TestUser",
+            password: "password123",
+            password_hash: "hashedPassword"
+        });
+
+        expect(mockStatus).toHaveBeenCalledWith(201);
+    });
+
+    it("should return an error if registration fails", async () => {
+        jest.spyOn(bcrypt, "genSalt")
+            .mockResolvedValue("testSalt");
+
+        jest.spyOn(bcrypt, "hash")
+            .mockResolvedValue("hashedPassword");
+
+        jest.spyOn(User, "create")
+            .mockRejectedValue(new Error("Unable to create user"));
+
+        await usersController.register(mockReq, mockRes);
+
+        expect(User.create).toHaveBeenCalledTimes(1);
+
+        expect(mockStatus).toHaveBeenCalledWith(400);
+
+        expect(mockJson).toHaveBeenCalledWith({
+            error: "Unable to create user"
+        });
+    });
+});
+
+    
+
