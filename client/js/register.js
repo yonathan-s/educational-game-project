@@ -19,7 +19,7 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
     const data = await response.json();
 
     if (response.status == 201) {
-        window.location.assign("login.html");
+        window.location.assign("login.html?registered=true");
     } else {
         alert(data.error);
     }
