@@ -23,8 +23,15 @@ async function fetchUserProgress() {
 function renderStages(currentStage) {
 	const container = document.getElementById("stages-container")
 	const hintEl = document.getElementById("level-hint")
+	const learningLink = document.createElement("a")
 
 	container.innerHTML = ""
+
+	learningLink.href = "learning.html"
+	learningLink.className = "stage-item"
+	learningLink.textContent = `Learning`
+
+	container.appendChild(learningLink)
 
 	hintEl.textContent = `Click to see the 4 stages - open up to Stage ${currentStage}`
 
