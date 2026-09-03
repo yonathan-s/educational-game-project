@@ -53,4 +53,4 @@ const submitAnswer = async (req, res) => {
     }
 }
 
-module.exports = { getQuestion, submitAnswer }
+module.exports = { getQuestion, submitAnswer, questionModel }
