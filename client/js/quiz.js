@@ -150,6 +150,8 @@ function advanceQuiz() {
         renderQuestion()
     } else {
         console.log("End Quiz")
+        sessionStorage.setItem("activeStageNumber", 4)
+        window.location.href = "level.html";
     }
 }
 
