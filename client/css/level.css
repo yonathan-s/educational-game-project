@@ -1,0 +1,132 @@
+:root {
+  --crimson: #8f2c26;
+  --crimson-dark: #6f2119;
+  --gold: #b6902f;
+  --gold-bright: #d3ac52;
+  --parchment: #ece0bd;
+  --parchment-line: #b9a877;
+  --divider-bar: #93824f;
+  --sage: #52684a;
+  --text-dark: #2a2116;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  color: var(--text-dark);
+  background-image: url("../assets/tudor\ background\ image\ \'.jpg");
+  background-size: 480px;
+}
+
+.page {
+  width: 100%;
+  max-width: 720px;
+}
+
+.level-card {
+  background: var(--parchment);
+  border: 1px solid var(--gold);
+  border-bottom: 8px solid var(--divider-bar);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.level-header {
+  padding: 40px 32px;
+  text-align: center;
+  border-bottom: 8px solid var(--divider-bar);
+}
+
+.level-header h1 {
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  font-size: 1.7rem;
+  letter-spacing: 0.04em;
+  color: var(--crimson-dark);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.level-row {
+  border-top: 8px solid var(--divider-bar);
+}
+
+.level-row:first-of-type {
+  border-top: none;
+}
+
+.level-row summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.level-row.locked {
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.55;
+}
+
+.level-name {
+  font-family: "Cinzel", serif;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+}
+
+.hint {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #6b5f42;
+  max-width: 220px;
+  text-align: right;
+}
+
+.lock-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+.stage-list {
+  padding: 0 32px 28px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stage-item {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  border: 1px solid var(--parchment-line);
+  background: var(--parchment);
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--text-dark);
+}
+
+.stage-item:not(.locked):hover {
+  background: var(--crimson);
+  border-color: var(--gold);
+  color: #f3e9c9;
+}
+
+.stage-item.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
