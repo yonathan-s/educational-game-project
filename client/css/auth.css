@@ -105,6 +105,7 @@ body {
   letter-spacing: 0.05em;
   justify-content: center;
   color: #f3e9c9;
+  cursor: pointer;
   background: var(--crimson);
   border: 1px solid var(--gold);
 }
