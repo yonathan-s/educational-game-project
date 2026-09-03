@@ -16,7 +16,7 @@ async function register(req, res) {
       console.log(result.id);
       await User.createProgress(result.id)
   
-      res.status(201).send("User successfully created");
+      res.status(201).json({message: "User successfully created"});
     } catch (err) {
       res.status(400).json({ error: err.message });
     }

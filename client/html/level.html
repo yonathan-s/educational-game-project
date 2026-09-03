@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Historical Escape — Level Select</title>
     <link rel="stylesheet" href="../css/level.css" />
+    <script src="../js/level.js" defer></script>
   </head>
   <body>
     <div class="page">
@@ -16,16 +17,13 @@
         <details class="level-row">
           <summary>
             <p class="level-name">Level 1 · The Tudors</p>
-            <p class="hint">Click to see the 4 stages — only Stage 1 is open</p>
+            <p class="hint" id="level-hint">Loading your progress tracking...</p>
           </summary>
-          <div class="stage-list">
-            <a class="stage-item">Learning 1</a>
-            <a class="stage-item">Learning 2</a>
-            <a href="stage.html" class="stage-item">Stage 1</a>
-            <p class="stage-item locked">Stage 2</p>
-            <p class="stage-item locked">Stage 3</p>
-            <p class="stage-item locked">Stage 4</p>
-          </div>
+           
+          <div class="stage-list" id="stages-container">
+          <a  class="stage-item">Learning 1</a>
+          </div> 
+
         </details>
 
         <div class="level-row locked">

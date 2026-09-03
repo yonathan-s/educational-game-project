@@ -1,3 +1,9 @@
+const params = new URLSearchParams(window.location.search);
+
+if (params.get("registered") === "true") {
+    document.getElementById("success-message").style.display = "block";
+}
+
 document.getElementById("login-form").addEventListener("submit", async (e) =>{
     e.preventDefault();
 
@@ -14,6 +20,8 @@ document.getElementById("login-form").addEventListener("submit", async (e) =>{
             password: form.get("password")
         })
     }
+
+    
 
     const response = await fetch("http://localhost:3000/users/login", options);
     const data = await response.json();
