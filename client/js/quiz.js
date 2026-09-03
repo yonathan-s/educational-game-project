@@ -1,5 +1,5 @@
-let quizData = [];
-let currentQuestion = 0;
+const REQUIRED_CORRECT = 1;
+let currentQuestion = null;
 let score = 0;
 let timeLeft = 30;
 let timerInterval;
@@ -25,7 +25,7 @@ const feedbackMessageText = document.getElementById("feedback-message-text");
 const continueBtn = document.getElementById("continue-btn");
 
 async function startQuiz() {
-  correctCount = 0;
+  score = 0;
   await loadNewQuestion();
 }
 
@@ -37,10 +37,13 @@ async function loadNewQuestion() {
     currentQuestion = {
       id: data.question.id,
       text: data.question.question_text,
-      answers: data.asnwers,
+      answers: data.answers,
     };
   } catch (err) {
     console.error("Could not load question:", err);
+    questionTextEl.textContent =
+      "Could not load a question. Please refresh the page.";
+    optionsGridEl.innerHTML = "";
     return;
   }
 
@@ -54,11 +57,11 @@ function renderQuestion() {
   timerDisplayEl.textContent = timeLeft;
   startTimer();
 
-  questionTextEl.textContent = q.question;
+  questionTextEl.textContent = currentQuestion.text;
   optionsGridEl.innerHTML = "";
 
-  updateProgess(quizProgressLabel, quizProgressFill);
-  quizPointsEl.textContent = `${correctCount * 100} pts`;
+  updateProgress(quizProgressLabel, quizProgressFill);
+  quizPointsEl.textContent = `${score * 100} pts`;
 
   currentQuestion.answers.forEach((answer) => {
     const btn = document.createElement("button");
@@ -66,7 +69,15 @@ function renderQuestion() {
     btn.style.cursor = "pointer";
     btn.textContent = answer.answer_text;
     btn.addEventListener("click", () => handleAnswerClick(answer.id));
+    optionsGridEl.appendChild(btn);
   });
+}
+
+function updateProgress(labelEl, fillEl) {
+  const displayNum = Math.min(score + 1, REQUIRED_CORRECT);
+  const progressPercentage = (displayNum / REQUIRED_CORRECT) * 100;
+  labelEl.textContent = `Question ${displayNum}/${REQUIRED_CORRECT}`;
+  fillEl.style.width = `${progressPercentage}%`;
 }
 
 function startTimer() {
@@ -76,29 +87,44 @@ function startTimer() {
 
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
-      evaluateChoice(null, quizData[currentQuestion].correct);
+      handleTimeout();
     }
   }, 1000);
 }
 
-function evaluateChoice(selectedChoice, correctChoice) {
+async function handleAnswerClick(answerId) {
   clearInterval(timerInterval);
 
+  try {
+    const result = await checkAnswer(currentQuestion.id, answerId);
+    evaluateChoice(result.correct);
+  } catch (err) {
+    console.error("Could not check answer:", err);
+    evaluateChoice(false);
+  }
+}
+
+function handleTimeout() {
+  evaluateChoice(null);
+}
+
+function evaluateChoice(isCorrect) {
   viewQuiz.style.display = "none";
   viewFeedback.style.display = "block";
 
-  const displayNum = currentQuestion + 1;
-  const progressPercentage = (displayNum / quizData.length) * 100;
-  feedbackProgressLabel.textContent = `Question ${displayNum}/${quizData.length}`;
-  feedbackProgressFill.style.width = `${progressPercentage}%`;
-
-  if (selectedChoice === correctChoice) {
+  if (isCorrect) {
     score++;
+  }
+
+  updateProgress(feedbackProgressLabel, feedbackProgressFill);
+  feedbackPointsEl.textContent = `${score * 100} pts`;
+
+  if (isCorrect) {
     feedbackBadgeStatus.innerHTML = "WELL<br />DONE";
     feedbackBadgePoints.textContent = "+100pts";
     feedbackMessageText.textContent =
       "Good job answering the question, you are one step closer to escape.";
-  } else if (selectedChoice === null) {
+  } else if (isCorrect === null) {
     feedbackBadgeStatus.innerHTML = "TIME<br />OUT";
     feedbackBadgePoints.textContent = "0pts";
     feedbackMessageText.textContent =
@@ -109,21 +135,21 @@ function evaluateChoice(selectedChoice, correctChoice) {
     feedbackMessageText.textContent =
       "That isn't right. Have another look and try the question again.";
   }
-
-  feedbackPointsEl.textContent = `${score * 100} pts`;
 }
 
-function advanceQuiz() {
-  currentQuestion++;
-  if (currentQuestion < quizData.length) {
-    viewFeedback.style.display = "none";
-    viewQuiz.style.display = "block";
-    renderQuestion();
-  } else {
-    console.log("End Quiz");
+async function advanceQuiz() {
+  if (score >= REQUIRED_CORRECT) {
+    try {
+      await advanceStage();
+    } catch (err) {
+      console.error("Could not advance stage:", err);
+    }
+    window.location.assign("level.html");
+    return;
   }
+  await loadNewQuestion();
 }
 
 continueBtn.addEventListener("click", advanceQuiz);
 
-loadQuizData();
+startQuiz();
