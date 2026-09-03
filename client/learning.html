@@ -338,7 +338,11 @@
 
     </div>
 
+<audio id="backgroundMusic" loop>
+    <source src="../client/assets/tudor-music.mp3" type="audio/mp3">
+</audio>
 
+<button id="musicButton">🔊 Play Music</button>
     <script>
 
         const pages = document.querySelectorAll(".learning-page")
@@ -394,8 +398,19 @@
             }
 
         })
+        musicButton.addEventListener("click", () => {
 
+    if (backgroundMusic.paused) {
+        backgroundMusic.play()
+        musicButton.textContent = "🔇 Stop Music"
+    } else {
+        backgroundMusic.pause()
+        musicButton.textContent = "🔊 Play Music"
+    }
 
+})
+
+showPage()
 
 
     </script>
