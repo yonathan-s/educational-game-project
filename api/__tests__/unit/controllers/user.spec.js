@@ -15,6 +15,78 @@ const mockStatus = jest.fn(() => ({
 
 const mockRes = { status: mockStatus };
 
+describe("Users controller register", () => {
+    let mockReq;
+
+    beforeEach(() => {
+        jest.clearAllMocks()
+        
+        mockReq = {
+            body: {
+                username: "TestUser",
+                password: "password123"
+            }
+        };
+    });
+
+    it("should register a user with a 201 status code", async () => {
+        jest.spyOn(bcrypt, "genSalt")
+            .mockResolvedValue("testSalt");
+
+        jest.spyOn(bcrypt, "hash")
+            .mockResolvedValue("hashedPassword");
+
+        jest.spyOn(User, "create")
+            .mockResolvedValue({
+                id: 1,
+                username: "TestUser",
+                password_hash: "hashedPassword"
+            });
+        
+        jest.spyOn(User, "createProgress").mockResolvedValue({});
+
+        await usersController.register(mockReq, mockRes);
+
+        expect(bcrypt.genSalt).toHaveBeenCalledTimes(1);
+
+        expect(User.createProgress).toHaveBeenCalledWith(1);
+
+        expect(bcrypt.hash).toHaveBeenCalledWith(
+            "password123",
+            "testSalt"
+        );
+
+        expect(User.create).toHaveBeenCalledWith({
+            username: "TestUser",
+            password: "password123",
+            password_hash: "hashedPassword"
+        });
+
+        expect(mockStatus).toHaveBeenCalledWith(201);
+    });
+
+    it("should return an error if registration fails", async () => {
+        jest.spyOn(bcrypt, "genSalt")
+            .mockResolvedValue("testSalt");
+
+        jest.spyOn(bcrypt, "hash")
+            .mockResolvedValue("hashedPassword");
+
+        jest.spyOn(User, "create")
+            .mockRejectedValue(new Error("Unable to create user"));
+
+        await usersController.register(mockReq, mockRes);
+
+        expect(User.create).toHaveBeenCalledTimes(1);
+
+        expect(mockStatus).toHaveBeenCalledWith(400);
+
+        expect(mockJson).toHaveBeenCalledWith({
+            error: "Unable to create user"
+        });
+    });
+});
+
 describe("Users controller login", () => {
     beforeEach(() => jest.clearAllMocks());
 
@@ -108,73 +180,7 @@ describe("Users controller login", () => {
 
 
 
-describe("Users controller register", () => {
-    let mockReq;
 
-    beforeEach(() => {
-        jest.clearAllMocks()
-        
-        mockReq = {
-            body: {
-                username: "TestUser",
-                password: "password123"
-            }
-        };
-    });
-
-    it("should register a user with a 201 status code", async () => {
-        jest.spyOn(bcrypt, "genSalt")
-            .mockResolvedValue("testSalt");
-
-        jest.spyOn(bcrypt, "hash")
-            .mockResolvedValue("hashedPassword");
-
-        jest.spyOn(User, "create")
-            .mockResolvedValue({
-                id: 1,
-                username: "TestUser",
-                password_hash: "hashedPassword"
-            });
-
-        await usersController.register(mockReq, mockRes);
-
-        expect(bcrypt.genSalt).toHaveBeenCalledTimes(1);
-
-        expect(bcrypt.hash).toHaveBeenCalledWith(
-            "password123",
-            "testSalt"
-        );
-
-        expect(User.create).toHaveBeenCalledWith({
-            username: "TestUser",
-            password: "password123",
-            password_hash: "hashedPassword"
-        });
-
-        expect(mockStatus).toHaveBeenCalledWith(201);
-    });
-
-    it("should return an error if registration fails", async () => {
-        jest.spyOn(bcrypt, "genSalt")
-            .mockResolvedValue("testSalt");
-
-        jest.spyOn(bcrypt, "hash")
-            .mockResolvedValue("hashedPassword");
-
-        jest.spyOn(User, "create")
-            .mockRejectedValue(new Error("Unable to create user"));
-
-        await usersController.register(mockReq, mockRes);
-
-        expect(User.create).toHaveBeenCalledTimes(1);
-
-        expect(mockStatus).toHaveBeenCalledWith(400);
-
-        expect(mockJson).toHaveBeenCalledWith({
-            error: "Unable to create user"
-        });
-    });
-});
 
     
 
