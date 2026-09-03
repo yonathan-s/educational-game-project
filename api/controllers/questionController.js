@@ -20,7 +20,7 @@ const getQuestion = async (req, res) => {
         .json({ error: "No question found for this stage" });
     }
     const answers = await questionModel.getAnswers(question.id);
-    res.status(200).json({ question, answers });
+    res.status(200).json({ question, answers, stage });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

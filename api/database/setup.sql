@@ -126,7 +126,8 @@ VALUES
     (1, 1, 'Henry VIII and His Wives', 100),
     (1, 2, 'Henry VIII and the Male Heir', 100),
     (1, 3, 'The English Reformation', 100),
-    (1, 4, 'Henry VIII and the Church', 100);
+    (1, 4, 'Henry VIII and the Church', 100),
+    (1, 5, 'Dummy stage', 100);
 
 
 -- =========================================

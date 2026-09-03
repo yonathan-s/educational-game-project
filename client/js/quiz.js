@@ -4,6 +4,8 @@ let score = 0;
 let timeLeft = 30;
 let timerInterval;
 
+const stageNames = ["Henry VIII and His Wives", "Henry VIII and the Male Heir", "The English Reformation", "Henry VIII and the Church"]
+
 const viewQuiz = document.getElementById("state-quiz");
 const viewFeedback = document.getElementById("state-feedback");
 
@@ -11,6 +13,7 @@ const questionTextEl = document.getElementById("question-text");
 const optionsGridEl = document.getElementById("options-grid");
 const timerDisplayEl = document.getElementById("timer-display");
 const quizPointsEl = document.getElementById("quiz-points-display");
+const quizStageName = document.getElementById("stage-name-display");
 const quizProgressLabel = document.getElementById("quiz-progress-label");
 const quizProgressFill = document.getElementById("quiz-progress-fill");
 
@@ -23,6 +26,7 @@ const feedbackBadgeStatus = document.getElementById("feedback-badge-status");
 const feedbackBadgePoints = document.getElementById("feedback-badge-points");
 const feedbackMessageText = document.getElementById("feedback-message-text");
 const continueBtn = document.getElementById("continue-btn");
+let currentStageIndex = 0
 
 async function startQuiz() {
   score = 0;
@@ -34,11 +38,15 @@ async function loadNewQuestion() {
 
   try {
     const data = await fetchRandomQuestion();
+    currentStageIndex = data.stage.current_stage_id - 1
+
     currentQuestion = {
       id: data.question.id,
       text: data.question.question_text,
       answers: data.answers,
+      stage_name: stageNames[currentStageIndex]
     };
+
   } catch (err) {
     console.error("Could not load question:", err);
     questionTextEl.textContent =
@@ -58,6 +66,7 @@ function renderQuestion() {
   startTimer();
 
   questionTextEl.textContent = currentQuestion.text;
+  quizStageName.textContent = currentQuestion.stage_name
   optionsGridEl.innerHTML = "";
 
   updateProgress(quizProgressLabel, quizProgressFill);
@@ -144,7 +153,14 @@ async function advanceQuiz() {
     } catch (err) {
       console.error("Could not advance stage:", err);
     }
-    window.location.assign("level.html");
+
+    if (currentStageIndex === 3) {
+      sessionStorage.setItem("activeStageNumber", 4)
+      window.location.href = "level.html";
+      return
+    }
+
+    window.location.reload()
     return;
   }
   await loadNewQuestion();
