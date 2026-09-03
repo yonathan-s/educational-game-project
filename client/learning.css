@@ -3,21 +3,17 @@
    ========================================= */
 
 
-/* ----- REUSABLE COLOURS ----- */
+/* ----- COLOURS ----- */
 
 :root {
     --crimson: #651f2b;
     --crimson-hover: #872c3c;
-
     --gold: #b28a45;
     --gold-light: #d6b65c;
-
     --parchment: #f3e5c8;
     --parchment-background: #d8c3a5;
-
     --brown-dark: #3b2414;
     --brown-medium: #4b2e16;
-
     --text-dark: #2b2118;
     --cream: #fff3d6;
 }
@@ -31,20 +27,14 @@ body {
     min-height: 100vh;
 
     font-family: Georgia, "Times New Roman", serif;
-
     color: var(--text-dark);
 
-    background:
-        radial-gradient(
-            circle at top,
-            rgba(255, 255, 255, 0.15),
-            transparent 40%
-        ),
-        linear-gradient(
-            rgba(60, 35, 20, 0.18),
-            rgba(60, 35, 20, 0.18)
-        ),
-        var(--parchment-background);
+    background-color: var(--parchment-background);
+    background-image: url("assets/bg image(1).jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
     display: flex;
     flex-direction: column;
@@ -88,6 +78,7 @@ h1 {
     background-color: var(--parchment);
 
     padding: 35px 45px;
+
     margin: 20px auto;
 
     border: 3px solid #7a5b35;
@@ -101,7 +92,7 @@ h1 {
 }
 
 
-/* Small Tudor-style border inside card */
+/* ----- INNER BORDER ----- */
 
 .learning-page::before {
     content: "";
@@ -143,6 +134,7 @@ h1 {
     font-size: 1.35rem;
 
     margin-top: 25px;
+    margin-bottom: 12px;
 }
 
 
@@ -164,17 +156,154 @@ h1 {
 }
 
 
-/* ----- IMPORTANT WORDS ----- */
-
 strong {
     color: var(--crimson);
 }
 
 
-/* ----- NAVIGATION AREA ----- */
+/* =========================================
+   TUDOR IMAGE FRAME
+   ========================================= */
 
-body > div:last-of-type {
-    margin: 15px 0 40px 0;
+.tudor-frame {
+    width: 180px;
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+    margin: 20px auto;
+
+    padding: 5px;
+
+    background-color: #c9a44c;
+
+    border: 8px solid #9b762d;
+
+    outline: 3px solid var(--brown-medium);
+
+    box-shadow:
+        0 0 0 3px var(--gold-light),
+        0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+.tudor-frame img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    box-sizing: border-box;
+
+    border: 2px solid var(--brown-dark);
+}
+
+
+/* =========================================
+   SIX WIVES
+   TEXT LEFT - IMAGE RIGHT
+   ========================================= */
+
+.wife-row {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin: 10px 0 40px;
+}
+
+
+.wife-text {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.wife-text p {
+    margin-top: 0;
+}
+
+
+/* ----- WIFE PORTRAITS ----- */
+
+.wife-row .wife-image {
+    width: 200px;
+    max-width: 200px;
+
+    flex: 0 0 200px;
+
+    margin: 0 0 0 auto;
+}
+
+
+.wife-row .wife-image img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================================
+   KEY FACTS
+   FACTS LEFT - IMAGE RIGHT
+   ========================================= */
+
+.facts-layout {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.facts-list {
+    flex: 1;
+
+    margin: 0;
+
+    padding-left: 25px;
+
+    white-space: nowrap;
+}
+
+
+.facts-layout .facts-image {
+    width: 260px;
+    max-width: 260px;
+
+    flex: 0 0 260px;
+
+    margin: 0;
+}
+
+
+.facts-layout .facts-image img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+.navigation-buttons {
+    margin: 15px 0 40px;
 
     display: flex;
 
@@ -198,6 +327,7 @@ button {
     border-radius: 6px;
 
     background-color: var(--crimson);
+
     color: var(--cream);
 
     cursor: pointer;
@@ -211,8 +341,6 @@ button {
 }
 
 
-/* Button hover */
-
 button:hover {
     background-color: var(--crimson-hover);
 
@@ -221,8 +349,6 @@ button:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 
-
-/* When button is clicked */
 
 button:active {
     transform: translateY(1px);
@@ -234,7 +360,7 @@ button:active {
 #startQuiz {
     display: block;
 
-    margin: 30px auto 10px auto;
+    margin: 30px auto 10px;
 
     padding: 15px 35px;
 
@@ -251,40 +377,7 @@ button:active {
 }
 
 
-/* ----- WIFE / CHARACTER IMAGE ----- */
-
-.character-image {
-    display: block;
-
-    width: 180px;
-    max-width: 100%;
-
-    margin: 20px auto;
-
-    border: 5px solid var(--gold);
-
-    border-radius: 4px;
-
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.35);
-}
-
-
-/* ----- CHARACTER SECTION ----- */
-
-.character {
-    background-color: rgba(255, 255, 255, 0.25);
-
-    padding: 15px 20px;
-
-    margin: 20px 0;
-
-    border-left: 5px solid var(--crimson);
-
-    border-radius: 4px;
-}
-
-
-/* ----- MISSION WARNING / STORY BOX ----- */
+/* ----- MISSION BOX ----- */
 
 .mission-box {
     background-color: var(--crimson);
@@ -296,7 +389,6 @@ button:active {
     margin: 25px 0;
 
     border: 3px solid var(--gold);
-
     border-radius: 6px;
 
     text-align: center;
@@ -311,77 +403,8 @@ button:active {
 
 
 /* =========================================
-   TUDOR FRAMES
+   MOBILE / SMALL SCREEN
    ========================================= */
-
-.tudor-frame {
-    width: 180px;
-
-    margin: 20px auto;
-
-    padding: 5px;
-
-    background-color: #c9a44c;
-
-    border: 8px solid #9b762d;
-
-    outline: 3px solid var(--brown-medium);
-
-    box-shadow:
-        0 0 0 3px var(--gold-light),
-        0 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-
-.tudor-frame img {
-    display: block;
-
-    width: 100%;
-    height: 220px;
-
-    object-fit: cover;
-
-    border: 2px solid var(--brown-dark);
-}
-
-
-/* =========================================
-   OPTIONAL BACKGROUNDS FOR OTHER PAGES
-   ========================================= */
-
-.tudor-palace-background {
-    background-image:
-        linear-gradient(
-            rgba(30, 20, 15, 0.5),
-            rgba(30, 20, 15, 0.5)
-        ),
-        url("images/tudor-palace.jpg");
-
-    background-size: cover;
-
-    background-position: center;
-
-    background-attachment: fixed;
-}
-
-
-.tudor-tower-background {
-    background-image:
-        linear-gradient(
-            rgba(25, 20, 15, 0.6),
-            rgba(25, 20, 15, 0.6)
-        ),
-        url("images/tudor-tower.jpg");
-
-    background-size: cover;
-
-    background-position: center;
-
-    background-attachment: fixed;
-}
-
-
-/* ----- MOBILE / SMALL SCREEN ----- */
 
 @media (max-width: 700px) {
 
@@ -413,12 +436,50 @@ button:active {
     }
 
 
-    .tudor-frame {
+    /* Keep wife text left and image right */
+
+    .wife-row {
+        flex-direction: row;
+
+        gap: 20px;
+    }
+
+
+    .wife-row .wife-image {
         width: 150px;
+        max-width: 150px;
+
+        flex: 0 0 150px;
+
+        margin: 0 0 0 auto;
     }
 
 
-    .tudor-frame img {
-        height: 190px;
+    /* Keep Key Facts side by side */
+
+    .facts-layout {
+        flex-direction: row;
+
+        gap: 15px;
     }
+
+
+    .facts-list {
+        padding-left: 20px;
+
+        font-size: 0.9rem;
+
+        white-space: nowrap;
+    }
+
+
+    .facts-layout .facts-image {
+        width: 150px;
+        max-width: 150px;
+
+        flex: 0 0 150px;
+
+        margin: 0;
+    }
+
 }
