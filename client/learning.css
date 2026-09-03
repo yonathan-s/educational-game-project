@@ -3,6 +3,26 @@
    ========================================= */
 
 
+/* ----- REUSABLE COLOURS ----- */
+
+:root {
+    --crimson: #651f2b;
+    --crimson-hover: #872c3c;
+
+    --gold: #b28a45;
+    --gold-light: #d6b65c;
+
+    --parchment: #f3e5c8;
+    --parchment-background: #d8c3a5;
+
+    --brown-dark: #3b2414;
+    --brown-medium: #4b2e16;
+
+    --text-dark: #2b2118;
+    --cream: #fff3d6;
+}
+
+
 /* ----- GENERAL PAGE ----- */
 
 body {
@@ -12,15 +32,19 @@ body {
 
     font-family: Georgia, "Times New Roman", serif;
 
-    color: #2b2118;
+    color: var(--text-dark);
 
     background:
-        radial-gradient(circle at top, rgba(255,255,255,0.15), transparent 40%),
+        radial-gradient(
+            circle at top,
+            rgba(255, 255, 255, 0.15),
+            transparent 40%
+        ),
         linear-gradient(
             rgba(60, 35, 20, 0.18),
             rgba(60, 35, 20, 0.18)
         ),
-        #d8c3a5;
+        var(--parchment-background);
 
     display: flex;
     flex-direction: column;
@@ -39,13 +63,13 @@ h1 {
 
     text-align: center;
 
-    background-color: #651f2b;
+    background-color: var(--crimson);
     color: #f5e6c8;
 
     font-size: 2.5rem;
     letter-spacing: 2px;
 
-    border-bottom: 6px solid #b28a45;
+    border-bottom: 6px solid var(--gold);
 
     text-shadow: 2px 2px 3px #2b1015;
 }
@@ -61,7 +85,7 @@ h1 {
 
     box-sizing: border-box;
 
-    background-color: #f3e5c8;
+    background-color: var(--parchment);
 
     padding: 35px 45px;
     margin: 20px auto;
@@ -83,6 +107,7 @@ h1 {
     content: "";
 
     position: absolute;
+
     top: 10px;
     bottom: 10px;
     left: 10px;
@@ -97,7 +122,7 @@ h1 {
 /* ----- HEADINGS ----- */
 
 .learning-page h2 {
-    color: #651f2b;
+    color: var(--crimson);
 
     text-align: center;
 
@@ -106,7 +131,7 @@ h1 {
     margin-top: 0;
     margin-bottom: 25px;
 
-    border-bottom: 2px solid #b28a45;
+    border-bottom: 2px solid var(--gold);
 
     padding-bottom: 12px;
 }
@@ -142,7 +167,7 @@ h1 {
 /* ----- IMPORTANT WORDS ----- */
 
 strong {
-    color: #651f2b;
+    color: var(--crimson);
 }
 
 
@@ -169,11 +194,11 @@ button {
 
     padding: 12px 28px;
 
-    border: 2px solid #b28a45;
+    border: 2px solid var(--gold);
     border-radius: 6px;
 
-    background-color: #651f2b;
-    color: #fff3d6;
+    background-color: var(--crimson);
+    color: var(--cream);
 
     cursor: pointer;
 
@@ -189,7 +214,7 @@ button {
 /* Button hover */
 
 button:hover {
-    background-color: #872c3c;
+    background-color: var(--crimson-hover);
 
     transform: translateY(-2px);
 
@@ -236,7 +261,7 @@ button:active {
 
     margin: 20px auto;
 
-    border: 5px solid #b28a45;
+    border: 5px solid var(--gold);
 
     border-radius: 4px;
 
@@ -253,7 +278,7 @@ button:active {
 
     margin: 20px 0;
 
-    border-left: 5px solid #651f2b;
+    border-left: 5px solid var(--crimson);
 
     border-radius: 4px;
 }
@@ -262,15 +287,15 @@ button:active {
 /* ----- MISSION WARNING / STORY BOX ----- */
 
 .mission-box {
-    background-color: #651f2b;
+    background-color: var(--crimson);
 
-    color: #fff3d6;
+    color: var(--cream);
 
     padding: 18px 22px;
 
     margin: 25px 0;
 
-    border: 3px solid #b28a45;
+    border: 3px solid var(--gold);
 
     border-radius: 6px;
 
@@ -282,6 +307,77 @@ button:active {
 
 .mission-box strong {
     color: #ffd98a;
+}
+
+
+/* =========================================
+   TUDOR FRAMES
+   ========================================= */
+
+.tudor-frame {
+    width: 180px;
+
+    margin: 20px auto;
+
+    padding: 5px;
+
+    background-color: #c9a44c;
+
+    border: 8px solid #9b762d;
+
+    outline: 3px solid var(--brown-medium);
+
+    box-shadow:
+        0 0 0 3px var(--gold-light),
+        0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+.tudor-frame img {
+    display: block;
+
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    border: 2px solid var(--brown-dark);
+}
+
+
+/* =========================================
+   OPTIONAL BACKGROUNDS FOR OTHER PAGES
+   ========================================= */
+
+.tudor-palace-background {
+    background-image:
+        linear-gradient(
+            rgba(30, 20, 15, 0.5),
+            rgba(30, 20, 15, 0.5)
+        ),
+        url("images/tudor-palace.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+}
+
+
+.tudor-tower-background {
+    background-image:
+        linear-gradient(
+            rgba(25, 20, 15, 0.6),
+            rgba(25, 20, 15, 0.6)
+        ),
+        url("images/tudor-tower.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
 }
 
 
@@ -316,28 +412,13 @@ button:active {
         padding: 10px 20px;
     }
 
-}
-.tudor-frame {
-    width: 180px;
-    margin: 20px auto;
 
-    /* Gold Tudor-style frame */
-    border: 8px solid #9b762d;
-    outline: 3px solid #4b2e16;
+    .tudor-frame {
+        width: 150px;
+    }
 
-    padding: 5px;
-    background-color: #c9a44c;
 
-    box-shadow:
-        0 0 0 3px #d6b65c,
-        0 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-.tudor-frame img {
-    display: block;
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-
-    border: 2px solid #3b2414;
+    .tudor-frame img {
+        height: 190px;
+    }
 }
