@@ -1,7 +1,7 @@
 async function fetchRandomQuestion() {
   const token = localStorage.getItem("token");
 
-  const response = await fetch(`http://localhost:3000/questions`, {
+  const response = await fetch(`https://history-escape.onrender.com/questions`, {
     headers: {
       Accept: "application/json",
       Authorization: token,
@@ -18,7 +18,7 @@ async function fetchRandomQuestion() {
 async function checkAnswer(questionId, answerId) {
   const token = localStorage.getItem("token");
 
-  const response = await fetch(`http://localhost:3000/questions/answer`, {
+  const response = await fetch(`https://history-escape.onrender.com/questions/answer`, {
     method: "POST",
     headers: {
       Accept: "application/json",
