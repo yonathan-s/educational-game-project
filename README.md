@@ -232,6 +232,8 @@ npm install
 ```env
 PORT=<your-port>
 DB_URL=<your-database-url>
+BCRYPT_SALT_ROUNDS=3
+SECRET_TOKEN=<Generate a random secret token>
 ```
 
 5. Set up and seed the database:
@@ -241,6 +243,12 @@ npm run setup-db
 ```
 
 6. Start the server:
+
+```bash
+npm run start
+```
+
+6. Start the server in developer mode:
 
 ```bash
 npm run dev
@@ -369,7 +377,7 @@ We used **Jest** and **Supertest** to test the application.
 
 Our aim was to achieve at least **60% test coverage**.
 
-**Final test coverage:** `ADD FINAL TEST COVERAGE %`
+**Final test coverage:** `95.6 %`
 
 <img src="img/test-coverage.png" alt="Test coverage results" width="700">
 
@@ -379,8 +387,6 @@ Our aim was to achieve at least **60% test coverage**.
 
 Known bugs at the time of submission:
 
-- `Add confirmed bug here`
-- `Add confirmed bug here`
 
 If there are no known major bugs at the time of submission, this section will be updated to reflect this.
 
