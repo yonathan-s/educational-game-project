@@ -1,12 +1,14 @@
 :root {
-  --crimson: #8f2c26;
-  --crimson-dark: #6f2119;
-  --gold: #836210;
-  --gold-bright: #eedcb3;
-  --parchment: #ece0bd;
-  --parchment-line: #ad8610;
-  --sage: #52684a;
-  --text-dark: #2a2116;
+  --crimson: #651f2b;
+  --crimson-hover: #872c3c;
+  --gold: #b28a45;
+  --gold-light: #d6b65c;
+  --parchment: #f3e5c8;
+  --parchment-background: #d8c3a5;
+  --brown-dark: #3b2414;
+  --brown-medium: #4b2e16;
+  --text-dark: #2b2118;
+  --cream: #fff3d6;
 }
 
 * {
@@ -20,10 +22,14 @@ body {
   align-items: center;
   justify-content: center;
   padding: 48px 24px;
-  font-family: "Cormorant Garamond";
+  font-family: Georgia, "Times New Roman", serif;
   color: var(--text-dark);
+  background-color: var(--parchment-background);
   background-image: url("../assets/tudor\ background\ image\ \'.jpg");
-  background-size: 480px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .page {
@@ -35,36 +41,52 @@ body {
 }
 
 .title {
-  font-family: "Cinzel", serif;
-  font-weight: 600;
-  font-size: 2.6rem;
-  letter-spacing: 0.03em;
-  color: var(--gold-bright);
-  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
   margin: 0 0 8px;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--crimson);
+  color: var(--cream);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  border-bottom: 6px solid var(--gold);
+  text-shadow: 2px 2px 3px #2b1015;
 }
 
 .subtitle {
-  color: #e6e3da;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 8px;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--crimson);
+  color: var(--cream);
   font-size: 1.05rem;
-  font-style: italic;
-  margin: 0 0 32px;
+  letter-spacing: 1px;
+  border-bottom: 6px solid var(--gold);
+  text-shadow: 2px 2px 3px #2b1015;
 }
 
 .card {
   width: 100%;
-  background: var(--parchment);
-  border: 1px solid var(--gold);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  padding: 40px 44px 34px;
+  background-color: var(--parchment);
+  border: 3px solid #7a5b35;
+  border-radius: 8px;
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.35),
+    inset 0 0 35px rgba(120, 80, 40, 0.12);
+  padding: 35px 40px;
+  position: relative;
 }
 
 .card h2 {
-  font-weight: 500;
-  font-size: 1.6rem;
+  color: var(--crimson);
   text-align: center;
-  margin: 0 0 28px;
-  color: var(--crimson-dark);
+  font-size: 1.6rem;
+  margin: 0 0 25px;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 12px;
 }
 
 .input {
@@ -74,9 +96,9 @@ body {
 .input label {
   display: block;
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: bold;
   letter-spacing: 0.12em;
-  color: var(--sage);
+  color: var(--brown-medium);
   margin-bottom: 7px;
   text-transform: uppercase;
 }
@@ -84,10 +106,12 @@ body {
 .input input {
   width: 100%;
   padding: 11px 13px;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.05rem;
   color: var(--text-dark);
-  background: #f6efd9;
-  border: 1px solid var(--parchment-line);
+  background: var(--cream);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
   outline: none;
 }
 
@@ -100,23 +124,36 @@ body {
   width: 100%;
   padding: 14px;
   margin-top: 6px;
-  font-family: "Cinzel", serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1rem;
+  font-weight: bold;
   letter-spacing: 0.05em;
   justify-content: center;
-  color: #f3e9c9;
+  color: var(--cream);
   cursor: pointer;
   background: var(--crimson);
-  border: 1px solid var(--gold);
+  border: 2px solid var(--gold);
+  border-radius: 6px;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .button:hover {
-  background: var(--crimson-dark);
+  background: var(--crimson-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+  transform: translateY(1px);
 }
 
 .divider {
   border: none;
-  border-top: 1px solid var(--parchment-line);
+  border-top: 1px solid var(--gold);
   margin: 26px 0 16px;
 }
 
@@ -128,25 +165,25 @@ body {
 
 .switch a {
   color: var(--crimson);
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .footer {
   text-align: center;
   font-size: 0.85rem;
   font-style: italic;
-  color: #8a7a4e;
+  color: var(--brown-medium);
   margin-top: 4px;
 }
 
 .success-message {
-    display: none;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #6c8b6b;
-    border-radius: 8px;
-    background: #e8f3e8;
-    color: #315c31;
-    text-align: center;
-    font-size: 14px;
+  display: none;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #6c8b6b;
+  border-radius: 8px;
+  background: #e8f3e8;
+  color: #315c31;
+  text-align: center;
+  font-size: 14px;
 }
