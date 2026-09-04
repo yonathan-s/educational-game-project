@@ -76,27 +76,27 @@ CREATE TABLE user_progress (
 
 -- Trophies
 -- Each level can have a trophy associated with completing that level
-CREATE TABLE trophies (
-    id INT GENERATED ALWAYS AS IDENTITY,
-    level_id INT NOT NULL,
-    trophy_name VARCHAR(100) NOT NULL,
-    description TEXT,
-    PRIMARY KEY (id),
-    FOREIGN KEY (level_id) REFERENCES levels(id)
-);
+-- CREATE TABLE trophies (
+--     id INT GENERATED ALWAYS AS IDENTITY,
+--     level_id INT NOT NULL,
+--     trophy_name VARCHAR(100) NOT NULL,
+--     description TEXT,
+--     PRIMARY KEY (id),
+--     FOREIGN KEY (level_id) REFERENCES levels(id)
+-- );
 
 -- User trophies
 -- Records which trophy each user has earned
-CREATE TABLE user_trophies (
-    id INT GENERATED ALWAYS AS IDENTITY,
-    user_id INT NOT NULL,
-    trophy_id INT NOT NULL,
-    earned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (trophy_id) REFERENCES trophies(id),
-    UNIQUE (user_id, trophy_id)
-);
+-- CREATE TABLE user_trophies (
+--     id INT GENERATED ALWAYS AS IDENTITY,
+--     user_id INT NOT NULL,
+--     trophy_id INT NOT NULL,
+--     earned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--     PRIMARY KEY (id),
+--     FOREIGN KEY (user_id) REFERENCES users(id),
+--     FOREIGN KEY (trophy_id) REFERENCES trophies(id),
+--     UNIQUE (user_id, trophy_id)
+-- );
 
 -- =========================================
 -- SEED DATA
@@ -255,9 +255,9 @@ VALUES
 -- LEVEL 1 TROPHY
 -- =========================================
 
-INSERT INTO trophies (level_id, trophy_name, description)
-VALUES
-    (1, 'Henry VIII History Master', 'Completed the Henry VIII level');
+-- INSERT INTO trophies (level_id, trophy_name, description)
+-- VALUES
+--     (1, 'Henry VIII History Master', 'Completed the Henry VIII level');
 
 
 -- =========================================
